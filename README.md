@@ -116,7 +116,7 @@ The chart tracks the total patients registered per day, with the X-axis represen
 ## Screenshots
 
 ### Login Page
-
+<img src="loginPage.png">
 
 ### Patient Management for Receptionists
 
