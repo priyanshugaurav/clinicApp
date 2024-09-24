@@ -119,8 +119,21 @@ The chart tracks the total patients registered per day, with the X-axis represen
 <img src="loginPage.png">
 
 ### Patient Management for Receptionists
+<img src="receptionistPage.png">
 
+### Edit Page for Receptionists
+<img src="receptionistPage.png">
+
+### Edit Page for Register New User For Receptionist
+<img src="editPatient.png">
+
+### Viewing Patient Details
+<img src="patientDetails.png">
+
+### Patient Management for Doctors
+<img src="doctorsPortal.png">
 
 ### Patient Registration Chart for Doctors
+<img src="chartsImage.png">
 
 
