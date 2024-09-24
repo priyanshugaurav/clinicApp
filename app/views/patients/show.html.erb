@@ -1,0 +1,23 @@
+<div class="patient-detail">
+  <h1 class="patient-title">Patient Details</h1>
+
+  <div class="patient-info">
+    <p>
+      <strong>Name:</strong>
+      <%= @patient.name %>
+    </p>
+    <p>
+      <strong>Age:</strong>
+      <%= @patient.age %>
+    </p>
+    <p>
+      <strong>Gender:</strong>
+      <%= @patient.gender %>
+    </p>
+  </div>
+
+  <div class="patient-actions">
+    <%= link_to 'Edit', edit_patient_path(@patient), class: 'btn-edit' %> |
+    <%= link_to 'Back', patients_path, class: 'btn-back' %>
+  </div>
+</div>

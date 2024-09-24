@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
+
+   <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+  <%= stylesheet_link_tag 'login', media: 'all' %> 
+   <%= stylesheet_link_tag 'patients', media: 'all' %> <!-- Include the patients styles -->
+  <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
+
+  <!-- Add ApexCharts CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+
+
+
+<body>
+  <header>
+    <% if session[:user_id] %>
+      Logged in as <%= User.find(session[:user_id]).username %>
+      <%= link_to 'Logout', logout_path, method: :delete %>
+    <% else %>
+      
+    <% end %>
+  </header>
+  <%= yield %>
+</body>
+</html>

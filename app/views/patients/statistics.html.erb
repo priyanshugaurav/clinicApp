@@ -1,0 +1,66 @@
+<h1 class="chart-title">Patients Registered Per Day</h1>
+
+<!-- Create a div to hold the chart -->
+<div id="patientsChart" style="max-width: 800px; margin: auto;"></div>
+
+<script>
+  // Convert Ruby data to JSON
+  const chartData = <%= @patients_per_day.to_json.html_safe %>;
+
+  // Prepare data for ApexCharts
+  const options = {
+    chart: {
+      type: 'line',
+      height: 350,
+      toolbar: {
+        show: true
+      }
+    },
+    series: [{
+      name: 'Patients Registered',
+      data: Object.values(chartData)
+    }],
+    xaxis: {
+      categories: Object.keys(chartData),  // Dates as labels on X-axis
+      title: {
+        text: 'Days',
+        style: {
+          color: '#ffffff' // Axis title color
+        }
+      },
+      labels: {
+        style: {
+          colors: '#ffffff' // Color for the axis labels
+        }
+      }
+    },
+    yaxis: {
+      title: {
+        text: 'Number of Patients',
+        style: {
+          color: '#ffffff' // Axis title color
+        }
+      },
+      labels: {
+        style: {
+          colors: '#ffffff' // Color for the axis labels
+        }
+      }
+    },
+    tooltip: {
+      shared: true,
+      intersect: false,
+      theme: 'dark' // Set tooltip theme to dark
+    },
+    colors: ['#007bff'], // Custom color for the line
+    dataLabels: {
+      enabled: true,
+    },
+  };
+
+  // Render the chart
+  const chart = new ApexCharts(document.querySelector("#patientsChart"), options);
+  chart.render();
+</script>
+
+<%= link_to 'Back', patients_path, class: 'btn-back' %>

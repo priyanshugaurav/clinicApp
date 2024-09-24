@@ -1,0 +1,36 @@
+<h1 class="patients-title">Patients</h1>
+
+<div class="patients-controls">
+  <% if current_user.role == 'receptionist' %>
+    <%= link_to 'New Patient', new_patient_path, class: 'btn-new-patient' %>
+  <% end %>
+
+  <% if current_user.role == 'doctor' %>
+    <%= link_to 'View Patient Statistics', statistics_patients_path, class: 'btn-statistics' %>
+  <% end %>
+</div>
+
+<table class="patients-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <td><%= patient.name %></td>
+        <td><%= patient.age %></td>
+        <td><%= patient.gender %></td>
+        <td><%= link_to 'Show', patient, class: 'btn-show' %></td>
+        <% if current_user.role == 'receptionist' %>
+          <td><%= link_to 'Edit', edit_patient_path(patient), class: 'btn-edit' %></td>
+          <td><%= link_to 'Delete', patient_path(patient), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn-delete' %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
